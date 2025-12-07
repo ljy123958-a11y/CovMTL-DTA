@@ -74,14 +74,6 @@ This tool allows you to:
        1) [C,c]=[C,c]-[C,c,S,s]=[O]  <-- This is the SMARTS string needed for model input
 ```
 
-## Results
 
-Detailed performance metrics and analysis plots can be found in the `results/` directory after running the training script.
 
-- **Overall Pearson R**: 0.7721
-- **Overall RMSE**: 0.8180
 
-## Citation
-
-If you use this code in your research, please cite:
-[Add your citation here]
