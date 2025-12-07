@@ -51,15 +51,6 @@ This repository contains the implementation of an **Enhanced Multi-Task Learning
    - Perform 5-fold cross-validation.
    - Save model weights, predictions, and analysis reports to the `results/` directory.
 
-## Results
 
-Detailed performance metrics and analysis plots can be found in the `results/` directory after running the training script.
 
-- **Overall Pearson R**: 0.7721
-- **Overall RMSE**: 0.8180
-
-## Citation
-
-If you use this code in your research, please cite:
-[Add your citation here]
 
