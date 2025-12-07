@@ -4,7 +4,7 @@ This repository contains the implementation of **CovMTL-DTA**, an **Enhanced Mul
 
 ## Key Features
 
-- **Task Relation Module**: Automatically learns relationships between 54 different protein targets (tasks) without requiring manual protein family annotation.
+- **Task Relation Module**: Automatically learns relationships between different protein targets (tasks) without requiring manual protein family annotation.
 - **Enhanced Cross-Modal Attention**: Uses multi-head attention with a gated fusion mechanism to better integrate molecular and protein features.
 - **SMARTS Warhead Features**: Incorporates reactive warhead information specifically for covalent inhibitors.
 - **Performance**: Achieved Pearson correlation of **0.77** across all tasks in 5-fold cross-validation.
@@ -73,6 +73,7 @@ This tool allows you to:
      匹配数量: 1 个SMARTS模式
        1) [C,c]=[C,c]-[C,c,S,s]=[O]  <-- This is the SMARTS string needed for model input
 ```
+
 
 
 
