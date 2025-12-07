@@ -2,12 +2,6 @@
 
 This repository contains the implementation of **CovMTL-DTA**, an **Enhanced Multi-Task Learning Model** designed for predicting drug-target binding affinity (pIC50), specifically optimized for covalent inhibitors with SMARTS warhead features.
 
-## Key Features
-
-- **Task Relation Module**: Automatically learns relationships between 54 different protein targets (tasks) without requiring manual protein family annotation.
-- **Enhanced Cross-Modal Attention**: Uses multi-head attention with a gated fusion mechanism to better integrate molecular and protein features.
-- **SMARTS Warhead Features**: Incorporates reactive warhead information specifically for covalent inhibitors.
-- **Performance**: Achieved Pearson correlation of **0.77** across all tasks in 5-fold cross-validation.
 
 ## Project Structure
 
@@ -87,3 +81,4 @@ Detailed performance metrics and analysis plots can be found in the `results/` d
 
 If you use this code in your research, please cite:
 [Add your citation here]
+
