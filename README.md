@@ -1,6 +1,6 @@
-# Enhanced Multi-Task Learning for covalent inhibitor
+# CovMTL-DTA: Enhanced Multi-Task Learning for Covalent Inhibitor
 
-This repository contains the implementation of an **Enhanced Multi-Task Learning Model** designed for predicting drug-target binding affinity (pIC50), specifically optimized for covalent inhibitors with SMARTS warhead features.
+This repository contains the implementation of **CovMTL-DTA**, an **Enhanced Multi-Task Learning Model** designed for predicting drug-target binding affinity (pIC50), specifically optimized for covalent inhibitors with SMARTS warhead features.
 
 ## Key Features
 
@@ -17,6 +17,7 @@ This repository contains the implementation of an **Enhanced Multi-Task Learning
 ├── results/                     # Output directory for training logs and predictions
 ├── protein_embeddings.pkl       # Pre-computed ESM protein embeddings
 ├── train.py                     # Main training script
+├── analyze_warheads.py          # Interactive tool for detecting warhead types and SMARTS patterns
 └── README.md                    # This file
 ```
 
@@ -31,26 +32,58 @@ This repository contains the implementation of an **Enhanced Multi-Task Learning
 
 ## Usage
 
-1. **Install Dependencies**:
-   Ensure you have all required libraries installed.
+### 1. Train the Model
 
-2. **Prepare Data**:
-   The `data/dataset.csv` should contain the following columns:
-   - `SMILES`: Molecular structure
-   - `Target_Gene`: Target protein name
-   - `pic50`: Binding affinity label
-   - `warhead_smarts`: SMARTS string for the covalent warhead
-   - `proteinseq`: Amino acid sequence of the target
+To train the multi-task model with the provided dataset:
 
-3. **Run Training**:
-   ```bash
-   python train.py
-   ```
-   The script will:
-   - Load the dataset and protein embeddings.
-   - Perform 5-fold cross-validation.
-   - Save model weights, predictions, and analysis reports to the `results/` directory.
+```bash
+python train.py
+```
 
+The script will:
+- Load the dataset and protein embeddings.
+- Perform 5-fold cross-validation.
+- Save model weights, predictions, and analysis reports to the `results/` directory.
 
+### 2. Analyze Warheads (Interactive Tool)
 
+To identify potential covalent warheads in a molecule and their reaction types:
 
+```bash
+python analyze_warheads.py
+```
+
+This tool allows you to:
+- Input a **SMILES** string.
+- Input a target **Residue** (e.g., `CYS`, `SER`).
+- Automatically detect:
+  - The inferred receptor atom (S, O, N).
+  - The specific **reaction type** (e.g., Michael Addition, Nucleophilic Substitution).
+  - The matching **SMARTS pattern** in the molecule.
+
+**Example Interaction:**
+```text
+[1/2] 请输入 SMILES 字符串: 
+> C=CC(=O)Nc1ccccc1
+
+[2/2] 请输入目标残基名称 (例如 CYS, SER, 或留空跳过): 
+> CYS
+
+[分析结果]
+状态: ✓ 检测到 1 种反应类型
+  1. Michael Addition
+     匹配数量: 1 个SMARTS模式
+       1) [C,c]=[C,c]-[C,c,S,s]=[O]
+```
+
+## Results
+
+Detailed performance metrics and analysis plots can be found in the `results/` directory after running the training script.
+
+- **Overall Pearson R**: 0.7721
+- **Overall RMSE**: 0.8180
+
+## Citation
+
+If you use this code in your research, please cite:
+[Add your citation here]
